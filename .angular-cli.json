@@ -1,0 +1,76 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "angular-jenkins"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "gamma",
+      "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/bootstrap-tour/build/css/bootstrap-tour.css",
+        "../node_modules/angular-ui-grid/ui-grid.css",
+        "../node_modules/angular-gridster/dist/angular-gridster.css",
+        "../node_modules/angular-ui-tree/dist/angular-ui-tree.css",
+        "../node_modules/angularjs-toaster/toaster.css",
+        "../node_modules/animate.css/animate.css",
+        "../node_modules/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css",
+        "../node_modules/clockpicker/dist/bootstrap-clockpicker.css",
+        "../node_modules/code-prettify/loader/prettify.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/@claviska/jquery-minicolors/jquery.minicolors.css",
+        "../node_modules/mermaid/dist/mermaid.dark.css",
+        "../node_modules/metismenu/dist/metisMenu.css",
+        "../node_modules/ng-table/dist/ng-table.css",
+        "../node_modules/summernote/dist/summernote.css",
+        "../node_modules/sweetalert2/dist/sweetalert2.css",
+        "assets/style.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/metismenu/dist/metisMenu.min.js",
+        "../node_modules/jquery-slimscroll/jquery.slimscroll.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}

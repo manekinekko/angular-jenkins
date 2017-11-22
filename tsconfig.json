@@ -1,0 +1,29 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "target": "es5",
+    "removeComments": true,
+    "rootDir": "src",
+    "outDir": "build",
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "typeRoots": [
+      "node_modules/@types/"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "node_modules/*",
+    "**/*-aot.ts"
+  ]
+}
