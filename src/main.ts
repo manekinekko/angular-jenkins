@@ -1,9 +1,13 @@
+import { JenkinsApp } from './app/app.angularjs.module';
 import { Injector, enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import {environment} from './environments/environment';
 
+import { UpgradeModule } from '@angular/upgrade/static';
 import { UIRouter, UrlService } from '@uirouter/core';
 import {JenkinsAngularApp} from './app/app.angular.module';
+
+import {UIStatePostRegister} from './__UIStatePostRegister';
 
 import './app/configs';
 import './app/controllers';
@@ -13,12 +17,19 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(JenkinsAngularApp).then(platformRef => {
-    const injector: Injector = platformRef.injector;
+  const injector = platformRef.injector;
+  const upgrade = injector.get(UpgradeModule) as UpgradeModule;
 
-    // Intialize the Angular Module (get() any UIRouter service from DI to initialize it)
-    const url: UrlService = injector.get(UIRouter).urlService;
+  // The DOM must be already be available
+  upgrade.bootstrap(document.body, [JenkinsApp.name], {strictDi: true});
 
-    // Instruct UIRouter to listen to URL changes
-    url.listen();
-    url.sync();
+  // Intialize the Angular Module (get() any UIRouter service from DI to initialize it)
+  const url: UrlService = injector.get(UrlService);
+
+  UIStatePostRegister(platformRef);
+
+  // Instruct UIRouter to listen to URL changes
+  url.listen();
+  url.sync();
+
 });
